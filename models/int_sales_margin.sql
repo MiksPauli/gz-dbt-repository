@@ -1,8 +1,8 @@
 SELECT 
 products_id,
-purchase_price,
-quantity,
 revenue,
+quantity,
+purchase_price,
 (quantity * purchase_price) as purchase_cost,
 (revenue - (quantity * purchase_price)) as margin
 FROM
