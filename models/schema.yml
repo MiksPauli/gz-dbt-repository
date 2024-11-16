@@ -3,10 +3,29 @@ version: 2
 sources:
   - name: raw
     schema: gz_raw_data
+    description: infos regarding orders, shipping and log costs
     tables:
       - name: sales
-        identifier : raw_gz_sales
+        identifier: raw_gz_sales
+        description: infos about orders, revenue and quantity
+        tests: 
+          - unique:
+              column_name: (orders_id || '_' || pdt_id)
       - name: product
-        identifier : raw_gz_product
+        identifier: raw_gz_product
+        description: infos about products and purchase costs
+        columns:
+          - name: products_id
+            description: primary key products
+            tests:
+              - unique
+              - not_null   
       - name: ship
-        identifier : raw_gz_ship
+        identifier: raw_gz_ship
+        description: infos about shipping and log costs
+        columns:
+          - name: orders_id
+            description: primary key shipping
+            tests:
+              - unique
+              - not_null   
