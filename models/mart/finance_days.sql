@@ -1,3 +1,4 @@
+{{ config(materialized= 'table')}}
 SELECT 
 int_sales_margin.date_date,
 COUNT(orders_id) as total_n_transaction,
