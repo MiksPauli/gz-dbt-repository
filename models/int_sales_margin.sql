@@ -1,5 +1,7 @@
 SELECT 
+date_date,
 products_id,
+orders_id,
 revenue,
 quantity,
 purchase_price,

@@ -1,7 +1,10 @@
 SELECT 
-margin -- from
+int_sales_margin.orders_id,
+date_date,
+ROUND (margin + shipping_fee - logcost - ship_cost, 2) AS operational_margin
 FROM
-{{ref("stg_raw__sales")}} as sales
+{{ref("int_sales_margin")}} 
 JOIN
-{{ref("stg_raw__product") }} as product
-  USING (products_id)
+{{ref("stg_raw__ship") }} as product
+   USING (orders_id)
+   ORDER BY operational_margin DESC
